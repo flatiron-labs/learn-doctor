@@ -31,9 +31,9 @@ module LearnDoctor
 
       def print_result
         if result == 1
-          puts "ok"
+          puts 'ok'
         else
-          puts "ok".red
+          puts 'error'.red
         end
       end
 
