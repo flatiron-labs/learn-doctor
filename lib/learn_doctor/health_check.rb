@@ -1,5 +1,6 @@
 require 'learn_doctor/health_check/file'
 require 'learn_doctor/health_check/step_checker'
+require 'learn_doctor/health_check/step_installer'
 
 module LearnDoctor
   class HealthCheck
