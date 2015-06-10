@@ -26,7 +26,7 @@ module LearnDoctor
       end
 
       def run_check_for_step
-        self.result = Open3.popen3(file.path)[1].read.strip.to_i
+        self.result = Open3.popen2e(file.path)[1].read.strip.to_i
       end
 
       def print_result
