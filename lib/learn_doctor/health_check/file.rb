@@ -36,7 +36,7 @@ module LearnDoctor
 
       def write_to_file!
         response = conn.get(step[check_or_install])
-        file.write(response.body)
+        file.write(response.body.sub('#!/bin/bash', '#!/bin/bash -l'))
         file.rewind
       end
 
