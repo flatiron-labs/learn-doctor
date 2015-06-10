@@ -50,11 +50,7 @@ module LearnDoctor
 
         if response
           run_installations!
-      #   if user says yes -> run appropriate install commands
-      #     rerun checks and output
-      #       all passes? -> exit
-      #       failures? -> give user support@learn.co email address
-      #
+          recheck_failures
         else
           exit
         end
@@ -74,7 +70,28 @@ module LearnDoctor
 
     def run_installations!
       failed_steps.each do |step|
-        step_install = LearnDoctor::HealthCheck::StepInstaller.new(step).execute
+        LearnDoctor::HealthCheck::StepInstaller.new(step).execute
+      end
+    end
+
+    def recheck_failures
+      puts "Rechecking environment..."
+      reinstallation_results = failed_steps.map do |step|
+        step_check = LearnDoctor::HealthCheck::StepChecker.new(step).execute
+
+        case step_check.result
+        when 1
+          nil
+        else
+          step[:title]
+        end
+      end.compact
+
+      if reinstallation_results.any?
+        puts "Unfortunately, there were problems trying to fix the following: #{reinstallation_results.join(', ')}"
+        puts "Please send an email to support@learn.co to get help."
+      else
+        exit
       end
     end
   end

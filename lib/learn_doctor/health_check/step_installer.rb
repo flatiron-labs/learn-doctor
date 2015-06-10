@@ -26,12 +26,12 @@ module LearnDoctor
 
       def run_install_for_step
         print "Installing #{title}..."
-        self.result = Open3.popen3('bash', file.path)[1].read.strip.to_i
+        self.result = Open3.popen3('bash', file.path)[1].read.strip
       end
 
       def print_result
-        if result ==  'Done.'
-          puts 'done'
+        if result.match(/Done/)
+          puts 'done'.green
         else
           puts 'error'.red
         end
