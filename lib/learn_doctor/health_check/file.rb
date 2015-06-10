@@ -31,7 +31,7 @@ module LearnDoctor
       end
 
       def create_file!
-        self.file = Tempfile.new(step[:title])
+        self.file = Tempfile.new(step[:title].gsub(' ', '_'))
       end
 
       def write_to_file!
