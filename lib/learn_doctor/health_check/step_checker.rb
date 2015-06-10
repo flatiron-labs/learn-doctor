@@ -21,11 +21,11 @@ module LearnDoctor
       private
 
       def set_file
-        self.file = LearnDoctor::HealthCheck::File.new(step, :check).file
+        self.file = LearnDoctor::HealthCheck::File.new(step, :check)
       end
 
       def run_check_for_step
-        print "Checking #{title}..."
+        print "#{title}..."
         self.result = Open3.popen3('bash', file.path)[1].read.strip.to_i
       end
 

@@ -1,4 +1,4 @@
-require 'learn_doctor/healt_check/file'
+require 'learn_doctor/health_check/file'
 require 'learn_doctor/health_check/step_checker'
 
 module LearnDoctor
@@ -39,7 +39,7 @@ module LearnDoctor
     end
 
     def run_checks!
-      setup_step_list.each do |step|
+      setup_step_list.steps.each do |key, step|
         step_check = LearnDoctor::HealthCheck::StepChecker.new(step).execute
 
         case step_check.result

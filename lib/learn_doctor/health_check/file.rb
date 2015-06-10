@@ -18,6 +18,10 @@ module LearnDoctor
         self.file.unlink
       end
 
+      def path
+        file.path
+      end
+
       private
 
       def prepare_file!
