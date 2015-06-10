@@ -40,7 +40,14 @@ module LearnDoctor
 
     def run_checks!
       setup_step_list.each do |step|
-        LearnDoctor::HealthCheck::StepChecker.new(step).execute
+        step_check = LearnDoctor::HealthCheck::StepChecker.new(step).execute
+
+        case step_check.result
+        when 1
+          self.passed_steps << step
+        when 0
+          self.failed_steps << step
+        end
       end
     end
 

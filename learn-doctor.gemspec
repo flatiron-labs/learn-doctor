@@ -22,5 +22,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "netrc"
   spec.add_runtime_dependency "faraday", "~> 0.9"
+  spec.add_runtime_dependency "colorize"
   spec.add_runtime_dependency "learn-web", ">= 1.0.5"
 end

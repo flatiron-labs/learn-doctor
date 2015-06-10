@@ -27,7 +27,7 @@ module LearnDoctor
       end
 
       def create_file!
-        self.file = TempFile.new(step[:title])
+        self.file = Tempfile.new(step[:title])
       end
 
       def write_to_file!
