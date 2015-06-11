@@ -19,12 +19,18 @@ module LearnDoctor
     end
 
     def diagnose
+      ensure_correct_rake!
       get_setup_step_list!
       run_checks!
       install_failures!
     end
 
     private
+
+    def ensure_correct_rake!
+      puts 'Preparing...'
+      `gem install rake`
+    end
 
     def get_setup_step_list!
       puts 'Getting latest environment environment setup data from Learn...'

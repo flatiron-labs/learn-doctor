@@ -33,7 +33,7 @@ module LearnDoctor
         if result == 1
           puts 'ok'
         else
-          puts 'error'.red
+          puts 'missing'.red
         end
       end
 
