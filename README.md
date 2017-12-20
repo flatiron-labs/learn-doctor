@@ -1,3 +1,5 @@
+> :warning: This gem was orphaned by its parent, [learn-co](https://github.com/learn-co/learn-co/pull/86), and is now deprecated.
+
 # learn-doctor
 
 Check and fix your environment based on Learn.co's defaults.
